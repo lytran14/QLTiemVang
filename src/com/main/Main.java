@@ -1,5 +1,7 @@
 package com.main;
 
+import Class_Utils.Auth;
+import Class_Utils.MsgBox;
 import com.event.EventMenuSelected;
 import com.form.FormBanRa;
 import com.form.FormCamDo;
@@ -45,31 +47,70 @@ public class Main extends javax.swing.JFrame {
         menu.addEventMenuSelected(new EventMenuSelected() {
             @Override
             public void selected(int index) {
-                System.out.println(".selected(): " + index);
+                //System.out.println(".selected(): " + index);
                 if (index == 7) {
-                    setForm(gv);
+                    if (Auth.isLogin()) {
+                        setForm(gv);
+                    } else {
+                        MsgBox.alert(null, "Vui lòng đăng nhập.");
+                    }
                 } else if (index == 2) {
-                    setForm(sp);
+                    if (Auth.isLogin()) {
+                        setForm(sp);
+                    } else {
+                        MsgBox.alert(null, "Vui lòng đăng nhập.");
+                    }
                 } else if (index == 3) {
-                    setForm(lsp);
+                    if (Auth.isLogin()) {
+                        setForm(lsp);
+                    } else {
+                        MsgBox.alert(null, "Vui lòng đăng nhập.");
+                    }
                 } else if (index == 4) {
-                    setForm(br);
+                    if (Auth.isLogin()) {
+                        setForm(br);
+                    } else {
+                        MsgBox.alert(null, "Vui lòng đăng nhập.");
+                    }
                 } else if (index == 5) {
-                    setForm(mv);
+                    if (Auth.isLogin()) {
+                        setForm(mv);
+                    } else {
+                        MsgBox.alert(null, "Vui lòng đăng nhập.");
+                    }
                 } else if (index == 6) {
-                    setForm(cd);
+                    if (Auth.isLogin()) {
+                        setForm(cd);
+                    } else {
+                        MsgBox.alert(null, "Vui lòng đăng nhập.");
+                    }
                 } else if (index == 9) {
-                    setForm(kh);
+                    if (Auth.isLogin()) {
+                        setForm(kh);
+                    } else {
+                        MsgBox.alert(null, "Vui lòng đăng nhập.");
+                    }
                 } else if (index == 11) {
-                    setForm(nv);
+                    if (Auth.isLogin()) {
+                        setForm(nv);
+                    } else {
+                        MsgBox.alert(null, "Vui lòng đăng nhập.");
+                    }
                 } else if (index == 12) {
-                    setForm(tkKe);
+                    if (Auth.isLogin()) {
+                        setForm(tkKe);
+                    } else {
+                        MsgBox.alert(null, "Vui lòng đăng nhập.");
+                    }
                 } else if (index == 14) {
+                    Auth.clear();
                     new FormDangNhap(Main.this, true).setVisible(true);
-                }  else if (index == 15) {
-                    new FormDoiMatKhau(Main.this,true).setVisible(true);
+                } else if (index == 15) {
+                    new FormDoiMatKhau(Main.this, true).setVisible(true);
                 } else if (index == 16) {
-                    System.exit(0);
+                    if (MsgBox.confirm(null, "BẠN CHẮC CHẮN MUỐN THOÁT?")) {
+                        System.exit(0);
+                    }
                 }
             }
         });
@@ -114,8 +155,10 @@ public class Main extends javax.swing.JFrame {
         );
         panelBorder2Layout.setVerticalGroup(
             panelBorder2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelBorder2Layout.createSequentialGroup()
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 831, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
